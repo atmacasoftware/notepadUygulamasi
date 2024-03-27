@@ -16,6 +16,25 @@ public class Main {
 
             if (text.equals("q")) {
                 System.out.println("Çıkış yapıldı.");
+                try {
+                    FileReader fReader = new FileReader(file);
+                    BufferedReader bReader = new BufferedReader(fReader);
+                    String line = bReader.readLine();
+
+                    if (line != null) {
+                        String lastLine = "";
+
+                        while (line != null) {
+                            lastLine = line;
+                            line = bReader.readLine();
+                        }
+                        System.out.println("Okunan son veri: " + lastLine);
+                    }
+
+                    bReader.close();
+                } catch (Exception e) {
+
+                }
                 return;
             }
 
